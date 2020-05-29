@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import tweets from 'tweets'
+import tweets from 'tweets';
+import Tweet from './tweet';
 
 class App extends React.Component {
   render() {
+
+    let tweetsArr = tweets.tweets.map((tweet) => {
+      return <Tweet tweet={tweet} />
+    });
+
     return (
       <div>
-        tweets
+        {tweetsArr}
       </div>
     );
   }
@@ -15,6 +20,6 @@ class App extends React.Component {
 
 const element = document.getElementById('app');
 
-ReactDOM.render(<App />, element );//
+ReactDOM.render(<App />, element );
 
 console.log("tweet react");
